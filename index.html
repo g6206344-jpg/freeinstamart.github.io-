@@ -89,8 +89,8 @@
             color: #666;
             font-size: 12px;
         }
-
-        /* Popup CSS - Yahi hai tera wala message */
+        
+        /* Popup CSS - Yahi add kiya hai */
         .popup {
             display: none;
             position: fixed;
@@ -107,7 +107,7 @@
             background: white;
             padding: 30px;
             border-radius: 20px;
-            max-width: 400px;
+            max-width: 350px;
             width: 90%;
             text-align: center;
             animation: pop 0.3s ease;
@@ -117,29 +117,19 @@
             100% { transform: scale(1); opacity: 1; }
         }
         .success-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-        .popup h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .popup p {
-            color: #666;
-            margin-bottom: 25px;
-            line-height: 1.6;
+            font-size: 50px;
+            margin-bottom: 15px;
         }
         .popup button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 12px 40px;
-            border-radius: 10px;
+            padding: 10px 30px;
+            border-radius: 8px;
             font-size: 16px;
-            font-weight: bold;
             cursor: pointer;
+            margin-top: 15px;
             width: auto;
-            display: inline-block;
         }
     </style>
 </head>
@@ -157,9 +147,9 @@
                 <input type="email" id="email" placeholder="Email Address" required>
             </div>
             <div class="form-group">
-                <input type="number" id="followers" placeholder="Number of Followers (100-1000)" min="100" max="1000" required>
+                <input type="number" id="followers" placeholder="Number of Followers" required>
             </div>
-            <button type="submit">🚀 GET FOLLOWERS</button>
+            <button type="submit">🚀SUBMIT</button>
         </form>
         
         <!-- Features -->
@@ -179,35 +169,21 @@
         </div>
     </div>
 
-    <!-- Popup Message - Yeh tera popup hai -->
+    <!-- Popup Message - Yeh add kiya hai -->
     <div class="popup" id="successPopup">
         <div class="popup-content">
             <div class="success-icon">✅</div>
             <h2>FOLLOWERS SENT SUCCESSFULLY!</h2>
-            <p>🎉 Congratulations! Your request has been processed.<br>
-            <strong>1000 followers</strong> will be delivered within 24 hours.<br>
-            Check your email for confirmation.</p>
-            <button onclick="closePopup()">OKAY</button>
+            <p>Your followers will be delivered within 24 hours.</p>
+            <button onclick="closePopup()">OK</button>
         </div>
     </div>
 
     <script>
         // Form submit handle karna
         document.getElementById('followerForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Page reload hone se rokta hai
-            
-            // Validation check
-            let username = document.getElementById('username').value;
-            let email = document.getElementById('email').value;
-            let followers = document.getElementById('followers').value;
-            
-            if(username && email && followers) {
-                // Popup dikhao
-                document.getElementById('successPopup').style.display = 'flex';
-                
-                // Form reset karo (optional)
-                this.reset();
-            }
+            e.preventDefault(); // Page reload na ho
+            document.getElementById('successPopup').style.display = 'flex'; // Popup dikhao
         });
 
         // Popup close function
@@ -224,4 +200,4 @@
         }
     </script>
 </body>
-                </html>
+</html>
